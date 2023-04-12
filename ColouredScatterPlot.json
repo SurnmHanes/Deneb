@@ -1,0 +1,181 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.4.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.4.0"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "ColouredScatterPlot",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "ca671603-87c6-43aa-aa6f-1462beb0c1ef",
+      "generated": "2023-03-06T09:24:13.089Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "SubICB Name for Visuals",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Total Interactions MAT",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Activity Scatter Y Axis",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Luforbec Status (historic)",
+        "description": "",
+        "type": "text",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Activity Scatter Title",
+        "description": "",
+        "type": "text",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {"disable": true}
+  },
+  "data": {"name": "dataset"},
+  "mark": {"type": "point"},
+  "encoding": {
+    "x": {
+      "field": "__1__",
+      "title": "Total Interactions Last 12M",
+      "type": "quantitative",
+      "axis": {"tickCount": 6}
+    },
+    "y": {
+      "field": "__2__",
+      "title": null,
+      "axis": {
+        "format": "#0,.K",
+        "formatType": "pbiFormat",
+        "tickCount": 4
+      },
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "__3__",
+      "type": "nominal",
+      "scale": {
+        "scheme": "pbiColorNominal"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "__0__",
+        "title": "PCO"
+      },
+      {
+        "field": "__1__",
+        "title": "Total Interactions Last 12M",
+        "format": "#,###",
+        "formatType": "pbiFormat"
+      },
+      {
+        "field": "__2__",
+        "title": "Sales / Growth",
+        "format": "#,###",
+        "formatType": "pbiFormat"
+      },
+      {
+        "field": "__3__",
+        "title": "Luforbec Status"
+      }
+    ],
+    "opacity": {
+      "condition": {
+        "test": {
+          "field": "__selected__",
+          "equal": "off"
+        },
+        "value": 0.3
+      },
+      "value": 1
+    }
+  }
+}

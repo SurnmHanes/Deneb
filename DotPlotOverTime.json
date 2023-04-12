@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.4.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.4.0"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "[No Name Provided]",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "a8486bfa-e8eb-4b8e-8176-3009c862a666",
+      "generated": "2023-03-06T09:25:35.324Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Year Month",
+        "description": "",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "SubICB Name for Visuals",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Sales MAT (ProductA)",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "ProductB Status (historic)",
+        "description": "",
+        "type": "text",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "MS% BDP/Form (ProductB MAT)",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__5__",
+        "name": "Sales MAT (ProductB)",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {"disable": true}
+  },
+  "data": {"name": "dataset"},
+  "mark": {"type": "point"},
+  "encoding": {
+    "x": {
+      "field": "__0__",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 0,
+        "format": "MMM yy",
+        "formatType": "pbiFormat",
+        "title": false
+      }
+    },
+    "y": {
+      "field": "__4__",
+      "type": "quantitative",
+      "axis": {
+        "format": "0.###%",
+        "formatType": "pbiFormat",
+        "title": "ProductB MS%",
+        "tickCount": 6
+      }
+    },
+    "color": {
+      "condition": {
+        "test": "datum['__3__'] == 'Not on Formulary'",
+        "value": {"expr": "pbiColor(0)"}
+      },
+      "value": {"expr": "pbiColor(1)"}
+    },
+    "tooltip": [
+      {
+        "field": "__1__",
+        "title": "PCO"
+      },
+      {
+        "field": "__0__",
+        "title": "Date",
+        "format": "MMM yy",
+        "formatType": "pbiFormat"
+      },
+      {
+        "field": "__4__",
+        "title": "ProductB MS",
+        "format": "0.##%",
+        "formatType": "pbiFormat"
+      },
+      {
+        "field": "__3__",
+        "title": "ProductB Status"
+      },
+      {
+        "field": "__5__",
+        "title": "__5__",
+        "format": "#,###",
+        "formatType": "pbiFormat"
+      }
+    ]
+  }
+}

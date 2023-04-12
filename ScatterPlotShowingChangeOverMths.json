@@ -1,0 +1,278 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.5.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.6.1"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "[No Name Provided]",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "cc1ccfe0-5cae-4298-a664-aa25d846f85d",
+      "generated": "2023-04-12T14:33:03.166Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "KAM / CS",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Date",
+        "description": "",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Primary Care Call Rate PerMonth",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Secondary Care Call Rate PerMonth",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75,
+      "color": "#E82176"
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#E82176",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "orient": "bottom",
+      "layout": {
+        "bottom": {"anchor": "middle"}
+      },
+      "title": false,
+      "titleFont": "Tahoma",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75,
+      "values": {"timeUnit": "month"}
+    }
+  },
+  "data": {"name": "dataset"},
+  "title": {
+    "text": "SECONDARY CARE CALL RATE PER DAY VS PRIMARY CARE CALL RATE PER DAY | OVER TIME ",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontSize": 12,
+    "fontWeight": "bold",
+    "color": "#E82176"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "tooltip": true,
+        "color": "lightgrey"
+      },
+      "encoding": {
+        "x": {
+          "field": "__2__",
+          "type": "quantitative",
+          "format": ".2f",
+          "axis": {
+            "title": "Primary Care Call Rate",
+            "titleColor": "#E82176",
+            "titleFont": "Tahoma",
+            "titleFontSize": 12
+          }
+        },
+        "y": {
+          "field": "__3__",
+          "type": "quantitative",
+          "axis": {
+            "title": "Secondary Care Call Rate",
+            "titleColor": "#E82176",
+            "titleFont": "Tahoma",
+            "titleFontSize": 12
+          }
+        },
+        "strokeDash": {
+          "field": "__0__",
+          "type": "ordinal",
+          "scale": {"range": [5, 5]},
+          "legend": false
+        }
+      }
+    },
+    {
+      "description": "KAM Labels",
+      "mark": {
+        "type": "text",
+        "font": "Tahoma",
+        "fontSize": 10,
+        "color": "#54C0E8",
+        "xOffset": 15,
+        "yOffset": 15
+      },
+      "encoding": {
+        "text": {
+          "field": "__0__",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "__2__",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "__3__",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "__2__",
+          "type": "quantitative",
+          "axis": {
+            "title": "Primary Care Call Rate"
+          }
+        },
+        "y": {
+          "field": "__3__",
+          "type": "quantitative",
+          "axis": {
+            "title": "Secondary Care Call Rate"
+          }
+        },
+        "color": {
+          "field": "__1__",
+          "type": "nominal",
+          "timeUnit": "month",
+          "scale": {
+            "scheme": "pbiColorNominal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "__2__",
+            "title": "Primary Care Call Rate",
+            "format": "0.00",
+            "formatType": "pbiFormat"
+          },
+          {
+            "field": "__3__",
+            "title": "Secondary Care Call Rate",
+            "format": "0.00",
+            "formatType": "pbiFormat"
+          },
+          {"field": "__0__"},
+          {
+            "field": "__1__",
+            "title": "__1__"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Date Labels",
+      "mark": {
+        "type": "text",
+        "font": "Tahoma",
+        "fontSize": 10,
+        "color": "#54C0E8",
+        "xOffset": 15,
+        "yOffset": 25
+      },
+      "encoding": {
+        "text": {
+          "field": "__1__",
+          "timeUnit": "month",
+          "type": "temporal"
+        },
+        "x": {
+          "field": "__2__",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "__3__",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

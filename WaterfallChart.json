@@ -1,0 +1,306 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.4.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.4.0"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "[No Name Provided]",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "f6d8b2f5-55c4-464c-87f2-34047d71b423",
+      "generated": "2023-03-06T09:26:23.640Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "ProductA Status All",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "ProductB Status All",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Sales MAT",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C",
+      "fontWeight": "bold",
+      "color": "#404040"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Segoe UI",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75
+    }
+  },
+  "data": {"name": "dataset"},
+  "width": 800,
+  "height": 450,
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "__2__",
+          "as": "sum"
+        }
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "lead",
+          "field": "__0__",
+          "as": "lead"
+        }
+      ]
+    },
+    {
+      "calculate": "datum['__1__'] == 0 ",
+      "as": "ProductB  Formulary"
+    },
+    {
+      "calculate": "datum['__0__'] === null ? datum['__0__'] : datum['__2__']",
+      "as": "lead"
+    },
+    {
+      "calculate": "datum['__0__'] === 'End' ? 0 : datum.sum - datum['__2__']",
+      "as": "previous_sum"
+    },
+    {
+      "calculate": "datum['__0__'] === 'End' ? datum['__2__'] : datum['__2__']",
+      "as": "amount"
+    },
+    {
+      "calculate": "(datum['__0__'] !== 'Begin' && datum['__0__'] !== 'End' && datum['__2__'] > 0 ? '+' : '') + datum['__2__']",
+      "as": "text_amount"
+    },
+    {
+      "calculate": "(datum.sum + datum.previous_sum) / 2",
+      "as": "center"
+    },
+    {
+      "calculate": "datum.sum < datum.previous_sum ? datum.sum : ''",
+      "as": "sum_dec"
+    },
+    {
+      "calculate": "datum.sum > datum.previous_sum ? datum.sum : ''",
+      "as": "sum_inc"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "__0__",
+      "type": "ordinal",
+      "sort": null,
+      "axis": {
+        "labelAngle": 0,
+        "title": "Status"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 140
+      },
+      "encoding": {
+        "y": {
+          "field": "previous_sum",
+          "type": "quantitative",
+          "title": "__2__"
+        },
+        "y2": {"field": "sum"},
+        "color": {"value": "#C1006A"}
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "size": 140,
+        "color": "#BBBBBB"
+      },
+      "encoding": {
+        "y": {
+          "field": "__2__",
+          "type": "quantitative",
+          "title": "__2__"
+        },
+        "x": {
+          "field": "__1__",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#404040",
+        "opacity": 1,
+        "strokeWidth": 2,
+        "xOffset": -70,
+        "x2Offset": 70
+      },
+      "encoding": {
+        "x2": {"field": "__0__"},
+        "y": {
+          "field": "sum",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -4,
+        "baseline": "bottom"
+      },
+      "encoding": {
+        "y": {
+          "field": "sum_inc",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "sum_inc",
+          "type": "nominal",
+          "format": ".2s"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": 4,
+        "baseline": "top"
+      },
+      "encoding": {
+        "y": {
+          "field": "sum_dec",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "sum_dec",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "center",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text_amount",
+          "type": "quantitative",
+          "format": ".2s"
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum['__0__'] === 'Begin' || datum['__0__'] === 'End'",
+              "value": "#725a30"
+            }
+          ],
+          "value": "white"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "baseline": "middle"
+      }
+    }
+  ]
+}

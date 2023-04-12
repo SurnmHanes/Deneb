@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.4.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.4.0"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "[No Name Provided]",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "8cbe80ed-0f70-4000-b16b-337fcd15f696",
+      "generated": "2023-03-06T09:47:38.332Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Supplier",
+        "description": "",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Month Growth %",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Segoe UI",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75
+    }
+  },
+  "data": {"name": "dataset"},
+  "title": {
+    "text": "__1__",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontSize": 12,
+    "fontWeight": "bold"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "tooltip": true,
+        "cornerRadiusTopRight": 7,
+        "cornerRadiusTopLeft": 7,
+        "cornerRadiusBottomRight": 7,
+        "cornerRadiusBottomLeft": 7
+      },
+      "encoding": {
+        "y": {
+          "field": "__1__",
+          "type": "quantitative",
+          "grid": "true",
+          "axis": null
+        },
+        "x": {
+          "field": "__0__",
+          "type": "nominal",
+          "title": null,
+          "axis": {"labelAngle": 0}
+        },
+        "color": {
+          "condition": {
+            "test": "datum['__1__']>0",
+            "value": "green"
+          },
+          "value": "red"
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "field": "__selected__",
+              "equal": "off"
+            },
+            "value": 0.3
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "description": "Labels",
+      "mark": {
+        "type": "text",
+        "yOffset": -7.5,
+        "fontSize": 10,
+        "color": {
+          "expr": "datum['__1__'] >0 ? 'black' :  'white'"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "__1__",
+          "type": "quantitative",
+          "format": "0.1%"
+        },
+        "x": {
+          "field": "__0__",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "__1__",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

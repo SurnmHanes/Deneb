@@ -1,0 +1,231 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.4.0.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.4.0"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "ProductB_On_Off_Formulary",
+      "description": "Rounded column chart showing amount of PCOs with ProductB on formulary / off formulary per month (for the most recent 12 mths)",
+      "author": "[No Author Details Provided]",
+      "uuid": "05ed61e0-7837-47a4-8191-8a0f77e3c5b4",
+      "generated": "2023-03-06T09:18:57.750Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Year Month",
+        "description": "",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Within Last 12 Months Formulary",
+        "description": "",
+        "type": "numeric",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Number of SubICBs",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "ProductB on Formulary count",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "ProductB Not on Formulary count",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Tahoma",
+      "fontSize": 11,
+      "fill": "white"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "title": false,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 2,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 20},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Tahoma",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Tahoma",
+      "labelFontSize": 11,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75,
+      "orient": "bottom"
+    }
+  },
+  "data": {"name": "dataset"},
+  "transform": [
+    {
+      "filter": {
+        "field": "__1__",
+        "equal": "1"
+      }
+    }
+  ],
+  "title": {
+    "text": "ProductB On Formulary per Month",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontSize": 14,
+    "fontWeight": "lighter"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "width": 30,
+        "cornerRadiusTopLeft": 7,
+        "cornerRadiusTopRight": 7,
+        "fill": "#C1006A",
+        "tooltip": true
+      }
+    },
+    {
+      "description": "Not On Formulary Labels",
+      "mark": {
+        "type": "text",
+        "dy": 10,
+        "font": "Tahoma",
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "__4__",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "width": 30,
+        "cornerRadiusTopLeft": 7,
+        "cornerRadiusTopRight": 7,
+        "fill": "#BBBBBB",
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "__3__",
+          "type": "quantitative",
+          "axis": null
+        }
+      }
+    },
+    {
+      "description": "On Formulary Labels",
+      "mark": {
+        "type": "text",
+        "font": "Tahoma",
+        "yOffset": -11,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "__3__",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "__3__",
+          "type": "quantitative",
+          "axis": null
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "__0__",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 0,
+        "format": "MMM yy",
+        "formatType": "pbiFormat",
+        "labelFontSize": 10
+      }
+    },
+    "y": {
+      "field": "__4__",
+      "type": "quantitative",
+      "axis": null
+    }
+  }
+}

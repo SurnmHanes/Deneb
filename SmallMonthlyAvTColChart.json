@@ -1,0 +1,201 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.5.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.6.1"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "Small Monthly AvT %",
+      "description": "This is a very small graph used in side panel to show AvT % for each of the last 12 mths",
+      "author": "Neil Hanes",
+      "uuid": "158f7e79-a4ab-4b03-a947-12ddfc134e26",
+      "generated": "2023-06-07T10:47:08.179Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Mth Name Abbr",
+        "description": "Name of month abbreviated to first 3 letters",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "YearMonthNumberSort",
+        "description": "Sort column to ensure Mth Name Abbr are displayed on x axis in correct order",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Actual v Target Units",
+        "description": "",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Segoe UI",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75
+    }
+  },
+  "data": {"name": "dataset"},
+  "title": {
+    "text": "Actual vs Target Last 12 Months",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontWeight": "normal",
+    "fontSize": 11
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "opacity": 0.3,
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {"field": "__2__"}
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "__2____highlight"
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "field": "__selected__",
+              "equal": "off"
+            },
+            "value": 0
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "yOffset": -15,
+        "angle": -90,
+        "font": "Segoe UI",
+        "fontSize": 9,
+        "fontWeight": "500"
+      },
+      "encoding": {
+        "y": {"field": "__2__"}
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "__0__",
+      "type": "nominal",
+      "sort": "__1__",
+      "axis": {
+        "labelAngle": 270,
+        "title": null,
+        "labelFontSize": 9,
+        "labelFontWeight": 500
+      }
+    },
+    "y": {
+      "type": "quantitative",
+      "axis": null
+    },
+    "color": {
+      "condition": {
+        "test": "datum['__2__'] < 1",
+        "value": "#954F52"
+      },
+      "value": "#4F6654"
+    },
+    "text": {
+      "field": "__2__",
+      "type": "quantitative",
+      "format": "#%",
+      "formatType": "pbiFormat"
+    }
+  }
+}

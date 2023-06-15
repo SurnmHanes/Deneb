@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.5.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.6.1"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "RoundedBarChartWithValuesAndPercentages",
+      "description": "Data Labels show data values and percentages at end of each bar",
+      "author": "Neil Hanes",
+      "uuid": "bd61efbe-83d2-4022-9e37-376f6d93411d",
+      "generated": "2023-06-15T08:53:02.684Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "On Formulary adj",
+        "description": "On Formulary Statuses",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "OnFormularyGroupCoverage%",
+        "description": "% of total",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "OnFormularyGroupCount",
+        "description": "Number on Formulary",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Segoe UI",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75
+    }
+  },
+  "data": {"name": "dataset"},
+  "title": {
+    "text": "PCO Formulary Coverage in addition to Trimbow pMDI",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontSize": 14,
+    "fontWeight": "lighter"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "opacity": 1,
+        "tooltip": null,
+        "cornerRadius": 5,
+        "color": {"expr": "pbiColor(0)"}
+      },
+      "encoding": {
+        "x": {"field": "__1__"}
+      }
+    },
+    {
+      "description": "DataLabels",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 12,
+        "font": "Tahoma",
+        "fontStyle": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "__1__",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "__1__",
+          "format": "#0.#%",
+          "formatType": "pbiFormat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Counts",
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -4,
+        "fontSize": 12,
+        "font": "Tahoma",
+        "fontStyle": "bold",
+        "color": "white"
+      },
+      "encoding": {
+        "x": {
+          "field": "__1__",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "__2__",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "__0__",
+      "type": "nominal",
+      "sort": {
+        "op": "sum",
+        "field": "__1__",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "labelLimit": 400
+      }
+    },
+    "x": {
+      "type": "quantitative",
+      "axis": null
+    },
+    "opacity": {
+      "condition": {
+        "test": {
+          "field": "__selected__",
+          "equal": "off"
+        },
+        "value": 0
+      },
+      "value": 1
+    },
+    "tooltip": false
+  }
+}

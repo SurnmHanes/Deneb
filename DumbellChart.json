@@ -1,0 +1,293 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.5.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "5.6.1"
+    },
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    },
+    "information": {
+      "name": "VerticalDumbell",
+      "description": "Dumbell chart showing the number of calls made by each rep for different products.\nX axis represents reps. One dot in the dumbell represents the number of calls made in respect of the product we are interested in. The other dot represents the number of calls made in respect of all other products.",
+      "author": "Neil Hanes",
+      "uuid": "1c3c965a-ec18-4544-8b72-062922ffc248",
+      "generated": "2023-06-16T19:05:35.440Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "KAM / CS",
+        "description": "Rep name",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Invokana Activity",
+        "description": "Number of calls made in respect of Invokana",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Other Activity",
+        "description": "Number of calls made in respect of all other products",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "arc": {},
+    "area": {
+      "line": true,
+      "opacity": 0.6
+    },
+    "bar": {},
+    "line": {
+      "strokeWidth": 3,
+      "strokeCap": "round",
+      "strokeJoin": "round"
+    },
+    "path": {},
+    "point": {
+      "filled": true,
+      "size": 75
+    },
+    "rect": {},
+    "shape": {},
+    "symbol": {
+      "strokeWidth": 1.5,
+      "size": 50
+    },
+    "text": {
+      "font": "Segoe UI",
+      "fontSize": 12,
+      "fill": "#605E5C"
+    },
+    "axis": {
+      "ticks": false,
+      "grid": false,
+      "domain": false,
+      "labelColor": "#605E5C",
+      "labelFontSize": 12,
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleColor": "#252423",
+      "titleFontSize": 16,
+      "titleFontWeight": "normal"
+    },
+    "axisQuantitative": {
+      "tickCount": 3,
+      "grid": true,
+      "gridColor": "#C8C6C4",
+      "gridDash": [1, 5],
+      "labelFlush": false
+    },
+    "axisX": {"labelPadding": 5},
+    "axisY": {"labelPadding": 10},
+    "header": {
+      "titleFont": "wf_standard-font, helvetica, arial, sans-serif",
+      "titleFontSize": 16,
+      "titleColor": "#252423",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C"
+    },
+    "legend": {
+      "titleFont": "Segoe UI",
+      "titleFontWeight": "bold",
+      "titleColor": "#605E5C",
+      "labelFont": "Segoe UI",
+      "labelFontSize": 13.333333333333332,
+      "labelColor": "#605E5C",
+      "symbolType": "circle",
+      "symbolSize": 75
+    }
+  },
+  "data": {"name": "dataset"},
+  "legend": {
+    "type": "symbol",
+    "title": "Symbols",
+    "fill": "SymbolColor"
+  },
+  "title": {
+    "text": "INVOKANA ACTIVITY VS OTHERS",
+    "anchor": "start",
+    "font": "Tahoma",
+    "fontSize": 12,
+    "fontWeight": "bold",
+    "color": "#E82176"
+  },
+  "layer": [
+    {
+      "name": "LEGEND",
+      "data": {
+        "values": [
+          {
+            "legend_id": 1,
+            "legend_size": 1,
+            "legend_label": "__1__"
+          },
+          {
+            "legend_id": 2,
+            "legend_size": 1,
+            "legend_label": "__2__"
+          }
+        ]
+      },
+      "mark": {
+        "type": "arc",
+        "radius": 0
+      },
+      "encoding": {
+        "theta": {
+          "field": "legend_size",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "legend_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "__1__",
+              "__2__"
+            ],
+            "range": [
+              "#E82176",
+              "#54C0E8"
+            ]
+          },
+          "legend": {
+            "orient": "top-right",
+            "direction": "horizontal",
+            "title": null,
+            "offset": 0,
+            "labelColor": "black",
+            "labelFont": "Segoe UI",
+            "labelFontSize": 11,
+            "labelFontStyle": "italic",
+            "symbolSize": 100,
+            "symbolType": "circle",
+            "symbolFillColor": "red"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "lightgrey",
+        "tooltip": true,
+        "strokeDash": [5, 1]
+      },
+      "encoding": {
+        "y": {
+          "field": "__2__",
+          "type": "quantitative",
+          "grid": "true",
+          "axis": {"title": null}
+        },
+        "x": {
+          "field": "__0__",
+          "type": "nominal",
+          "axis": {"title": null}
+        },
+        "size": {"value": 3},
+        "y2": {
+          "field": "__1__",
+          "type": "quantitative",
+          "grid": "true",
+          "axis": {"title": null}
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "field": "__selected__",
+              "equal": "off"
+            },
+            "value": 0.3
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "tooltip": true,
+        "color": "#E82176"
+      },
+      "encoding": {
+        "y": {
+          "field": "__1__",
+          "type": "quantitative",
+          "grid": "true",
+          "axis": {
+            "title": null,
+            "labelColor": "#E82176"
+          }
+        },
+        "x": {
+          "field": "__0__",
+          "type": "nominal",
+          "axis": {
+            "title": null,
+            "labelAngle": 320,
+            "labelColor": "#E82176",
+            "position": 0
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "field": "__selected__",
+              "equal": "off"
+            },
+            "value": 0.3
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "tooltip": true,
+        "color": "#54C0E8"
+      },
+      "encoding": {
+        "y": {
+          "field": "__2__",
+          "type": "quantitative",
+          "grid": "true",
+          "axis": {"title": null}
+        },
+        "x": {
+          "field": "__0__",
+          "type": "nominal",
+          "axis": {"title": null}
+        },
+        "opacity": {
+          "condition": {
+            "test": {
+              "field": "__selected__",
+              "equal": "off"
+            },
+            "value": 0.3
+          },
+          "value": 1
+        }
+      }
+    }
+  ]
+}

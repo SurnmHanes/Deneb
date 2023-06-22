@@ -15,31 +15,31 @@
       "dataPointLimit": 50
     },
     "information": {
-      "name": "Lollipop chart",
-      "description": "Lollipop chart of three separate countries showing performance between 2 years",
-      "author": "Neil ",
-      "uuid": "51b461e8-018b-4459-b999-f67759b7f13c",
-      "generated": "2023-06-22T12:20:45.581Z"
+      "name": "[No Name Provided]",
+      "description": "[No Description Provided]",
+      "author": "[No Author Details Provided]",
+      "uuid": "e52a6305-bef3-4c41-af77-e8ea94402ecb",
+      "generated": "2023-06-22T12:39:05.599Z"
     },
     "dataset": [
       {
         "key": "__0__",
         "name": "Country",
-        "description": "Country of interest",
+        "description": "",
         "type": "text",
         "kind": "column"
       },
       {
         "key": "__1__",
         "name": "Year",
-        "description": "Year",
+        "description": "",
         "type": "text",
         "kind": "column"
       },
       {
         "key": "__2__",
         "name": "TotalSites",
-        "description": "Number of historic sites",
+        "description": "",
         "type": "numeric",
         "kind": "measure"
       }
@@ -116,7 +116,10 @@
   },
   "facet": {
     "field": "__0__",
-    "header": {"labelOrient": "bottom"},
+    "header": {
+      "labelOrient": "bottom",
+      "labelPadding": 60
+    },
     "type": "ordinal",
     "columns": 3,
     "title": null,
@@ -149,6 +152,8 @@
               "title": null,
               "labelAngle": 0,
               "labelColor": "#E82176",
+              "labelBaseline": "line-bottom",
+              "labelPadding": -58,
               "position": 0,
               "labelExpr": " \"'\" + slice(datum.value, 2) "
             }

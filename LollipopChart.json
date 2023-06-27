@@ -18,8 +18,8 @@
       "name": "[No Name Provided]",
       "description": "[No Description Provided]",
       "author": "[No Author Details Provided]",
-      "uuid": "e52a6305-bef3-4c41-af77-e8ea94402ecb",
-      "generated": "2023-06-22T12:39:05.599Z"
+      "uuid": "f2127d75-fcd0-431f-b0a3-73cb9afb5852",
+      "generated": "2023-06-27T10:50:02.424Z"
     },
     "dataset": [
       {
@@ -33,7 +33,7 @@
         "key": "__1__",
         "name": "Year",
         "description": "",
-        "type": "text",
+        "type": "numeric",
         "kind": "column"
       },
       {
@@ -41,6 +41,13 @@
         "name": "TotalSites",
         "description": "",
         "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "GrowthBetweenYears",
+        "description": "",
+        "type": "text",
         "kind": "measure"
       }
     ]
@@ -118,7 +125,7 @@
     "field": "__0__",
     "header": {
       "labelOrient": "bottom",
-      "labelPadding": 60
+      "labelPadding": 20
     },
     "type": "ordinal",
     "columns": 3,
@@ -147,15 +154,15 @@
           },
           "x": {
             "field": "__1__",
-            "type": "ordinal",
+            "type": "nominal",
             "axis": {
               "title": null,
               "labelAngle": 0,
               "labelColor": "#E82176",
-              "labelBaseline": "line-bottom",
-              "labelPadding": -58,
+              "labelBaseline": "bottom",
+              "labelPadding": -65,
               "position": 0,
-              "labelExpr": " \"'\" + slice(datum.value, 2) "
+              "labelExpr": " \"'\" + slice(toString(datum.value), 2) "
             }
           },
           "color": {
@@ -205,6 +212,22 @@
                 "blue"
               ]
             }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "yOffset": 150,
+          "fontWeight": 700,
+          "baseline": "bottom"
+        },
+        "encoding": {
+          "text": {
+            "field": "__3__",
+            "type": "quantitative",
+            "format": "#0%",
+            "formatType": "pbiFormat"
           }
         }
       }

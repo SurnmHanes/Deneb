@@ -26,3 +26,8 @@ Dumbbell chart showing country performance (Denmark, Norway & Sweden) between tw
 Lollipop chart showing country performance (Denmark, Norway & Sweden) between two distinct calendar years:
 
 <img width="148" alt="Image" src="https://github.com/user-attachments/assets/9b1dd4ba-5817-4bdf-834f-42d0b1c1921f">
+
+## Rounded Bar Chart
+Bar chart with rounded edges showing the number of branches with a given status. The colour of the bars can also be used to indicate.
+
+<img width="206" alt="Image" src="https://github.com/user-attachments/assets/6eaad522-c919-416b-9739-2a21272ff31c" />

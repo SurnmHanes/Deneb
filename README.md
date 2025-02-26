@@ -1,6 +1,6 @@
 A repository containing code to create advanced data visualisations using Vega-Lite / Deneb. 
 
-These data visualisations have then been used in Power BI reports. 
+A number of these data visualisations have then been used in Power BI reports. 
 
 ## Column Chart with Supplier Axis
 Column chart with rounded edges showing the number of patients per supplier, split by gender:
@@ -21,3 +21,8 @@ Dumbbell chart comparing the activity (calls, appointments etc) that reps have m
 Dumbbell chart showing country performance (Denmark, Norway & Sweden) between two distinct calendar years:
 
 <img width="278" alt="Image" src="https://github.com/user-attachments/assets/df625dcc-15f8-4d88-b052-90e41282d3fb" />
+
+## Lollipop Chart
+Lollipop chart showing country performance (Denmark, Norway & Sweden) between two distinct calendar years:
+
+<img width="148" alt="Image" src="https://github.com/user-attachments/assets/9b1dd4ba-5817-4bdf-834f-42d0b1c1921f">

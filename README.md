@@ -31,3 +31,8 @@ Lollipop chart showing country performance (Denmark, Norway & Sweden) between tw
 Bar chart with rounded edges showing the number of branches with a given status. The colour of the bars can also be used to indicate.
 
 <img width="206" alt="Image" src="https://github.com/user-attachments/assets/6eaad522-c919-416b-9739-2a21272ff31c" />
+
+## Rounded Column Chart
+Two column charts in one showing each month for how many PCOs a given product is on formulary
+
+<img width="428" alt="Image" src="https://github.com/user-attachments/assets/3502d3e2-8e6e-491f-9b82-90d2be410ee8" />

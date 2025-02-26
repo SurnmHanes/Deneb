@@ -36,3 +36,19 @@ Bar chart with rounded edges showing the number of branches with a given status.
 Two column charts in one showing each month for how many PCOs a given product is on formulary
 
 <img width="428" alt="Image" src="https://github.com/user-attachments/assets/3502d3e2-8e6e-491f-9b82-90d2be410ee8" />
+
+## Scatter Plot Showing Change Over Time
+Scatter plot showing performance per rep with a dot per month per rep (thereby showing rep's historical performance each month)
+
+<img width="810" alt="ScatterPlotWithHistory" src="https://github.com/user-attachments/assets/f3358cae-640d-4c69-853e-f74dade72f34" />
+
+## Slope Graph
+Slope graph showing change between two distinct years for three different countries:
+
+<img width="270" alt="HTEtfJ1I3j" src="https://github.com/user-attachments/assets/7f6f4155-18b6-4cbf-b5b0-95fd86b41787" />
+
+## Small Monthly Actual vs Target
+
+## Vega Dial
+
+## Radar / Spider Chart 

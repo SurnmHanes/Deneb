@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 250,
-  "height": 250,
-  "padding": {"top": 50, "left": 150},
+  "width": 180,
+  "height": 180,
+  "padding": {"top": 10, "left": 70
+  },
   "background": "#212121",
   "signals": [
     {
@@ -18,13 +19,13 @@
             "type": "timer",
             "throttle": 0
           },
-          "update": "round(data('dataset')[0]['Vacancies Progress %']*100)"
+          "update": "round(data('dataset')[0]['First KPI Progress Percentage (Managers)']*100)"
         }
       ]
     },
     {
       "name": "actuals",
-      "update": "'Actual: ' + data('dataset')[0]['Vacancies For Dial']"
+      "update": "'Actual: ' + if( data('dataset')[0]['First KPI Value (Managers)'] === null, 0, format( data('dataset')[0]['First KPI Value (Managers)'], ',.0f') )"
     },
     {
       "name": "percentgreaterthan1",
@@ -130,11 +131,11 @@
         "field": "val"
       },
       "range": [
-        "#498cab",
-        "#498cab",
-        "#498cab",
-        "#498cab",
-        "#498cab"
+        "#1E9DD8",
+        "#1E9DD8",
+        "#1E9DD8",
+        "#1E9DD8",
+        "#1E9DD8"
       ]
     },
     {
@@ -154,34 +155,6 @@
     }
   ],
   "marks": [
-    {
-      "type": "arc",
-      "from": {"data": "back"},
-      "encode": {
-        "enter": {
-          "fill": {"value": "#212121"},
-          "x": {"signal": "width / 2"},
-          "y": {"signal": "height / 2"}
-        },
-        "update": {
-          "startAngle": {
-            "field": "startAngle"
-          },
-          "endAngle": {
-            "field": "endAngle"
-          },
-          "padAngle": {
-            "signal": "0.015"
-          },
-          "innerRadius": {
-            "signal": "(width / 2)-15"
-          },
-          "outerRadius": {
-            "signal": "width / 2"
-          }
-        }
-      }
-    },
     {
       "type": "arc",
       "from": {"data": "front"},
@@ -261,7 +234,7 @@
             "signal": "2*PI"
           },
           "innerRadius": {
-            "signal": "(width / 2)-25"
+            "signal": "(width / 2.1)-23"
           },
           "outerRadius": {
             "signal": "(width / 2)-20"
@@ -285,9 +258,10 @@
             "signal": "textGradient"
           },
           "x": {"signal": "width /2"},
-          "y": {"signal": "width /2"},
+          "y": {"signal": "width /2.5"},
           "dy": {"value": 20},
-          "fontSize": {"value": 50}
+          "fontSize": {"value": 35
+          }
         }
       }
     },
@@ -306,9 +280,11 @@
           },
           "fill": {"value": "#6D7288"},
           "x": {"signal": "width/2"},
-          "y": {"signal": "height /2"},
+          "y": {
+            "signal": "height /3.1"
+          },
           "dy": {"value": 60},
-          "fontSize": {"value": 20}
+          "fontSize": {"value": 15}
         }
       }
     }

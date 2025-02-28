@@ -48,6 +48,12 @@ Slope graph showing change between two distinct years for three different countr
 <img width="270" alt="HTEtfJ1I3j" src="https://github.com/user-attachments/assets/7f6f4155-18b6-4cbf-b5b0-95fd86b41787" />
 
 ## Small Monthly Actual vs Target
+This is a small graph used in side panel to indicate AvT % for each of the last (up to) 12 mths
+
+<img width="136" alt="f69q8h30wU" src="https://github.com/user-attachments/assets/409cc269-bc50-47bf-92fb-9778c5ae8f33" />
+
+
+
 
 ## Vega Dial
 

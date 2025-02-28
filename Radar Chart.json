@@ -61,7 +61,6 @@
               "x": {"signal": "scale('radial', datum.Performance) * cos(scale('angular', datum.Subject))"},
               "y": {"signal": "scale('radial', datum.Performance) * sin(scale('angular', datum.Subject))"},
               "stroke": {"value": "orange"},
-              // "stroke": {"scale": "color", "field": "category"},
               "strokeWidth": {"value": 1.3},
               "fill": {"value": "orange"},
               "fillOpacity": {"value": 0.3}

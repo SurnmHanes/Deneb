@@ -52,3 +52,5 @@ Slope graph showing change between two distinct years for three different countr
 ## Vega Dial
 
 ## Radar / Spider Chart 
+
+## Donut chart with central total

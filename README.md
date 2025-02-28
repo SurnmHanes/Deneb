@@ -52,11 +52,18 @@ This is a small graph used in side panel to indicate AvT % for each of the last 
 
 <img width="136" alt="f69q8h30wU" src="https://github.com/user-attachments/assets/409cc269-bc50-47bf-92fb-9778c5ae8f33" />
 
-
-
-
 ## Vega Dial
+A unit dial chart showing actual vs target progress against a (user-selectable) KPI.
+
+<img width="141" alt="yTR1Unp12j" src="https://github.com/user-attachments/assets/b4feebcc-14a5-450a-9b71-9343f093c4ba" />
 
 ## Radar / Spider Chart 
+A radar chart showing performance across a range of metrics for a given individual.
+
+<img width="322" alt="yRLzVdzf9D" src="https://github.com/user-attachments/assets/4e8c8e3e-8e9d-48b4-aef2-531ec22979ff" />
 
 ## Donut chart with central total
+Donut chart showing breakdown of a metric across different categories together with the total displayed in the centre.
+
+<img width="169" alt="xqzkod9YIR" src="https://github.com/user-attachments/assets/94a83cef-1f1f-4f78-8469-73d8cff05fb7" />
+

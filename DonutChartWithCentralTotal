@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "black"
+    },
+    "font": "Segoe UI"
+  },
+  "data": {
+    "name": "dataset"
+  },
+  "title": 
+  {
+    "text": "Present vs Absent",
+    "align": "center",
+    "anchor": "middle",
+    "fontSize": 18,
+    "fontWeight": 400
+  },
+  "layer": [
+    {
+      "description": "Basic Donut shape",
+      "mark": {
+        "type": "arc",
+        "innerRadius": 50,
+        "outerRadius": 75,
+        "tooltip": true
+      },
+      "encoding": {
+        "theta": {
+          "field": "Number of Days",
+          "type": "quantitative",
+          "stack": "normalize"
+        },
+        "color": {
+          "field": "Present / Absent",
+          "type": "nominal",
+          "legend": null,
+          "scale": 
+          { "domain": ["Present", "Absent"],
+            "range": [
+              "#118dff",
+              "#e6e6e6"
+            ] 
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "Number of Days",
+              "as": "Presence"
+            }
+          ]
+        }
+      ],
+      "description": "Central Total",
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "color": "black",
+        "fontSize": 24,
+        "baseline": "middle"
+      },
+      "encoding": {
+        "text": {
+          "field": "Presence",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "datum['Present / Absent'] + ', ' + datum['Number of Days']",
+          "as": "PresenceWithCount"
+        }
+      ],
+      "description": "Data labels",
+      "mark": {
+        "type": "text",
+        "radius": 110,
+        "align": "center",
+        "baseline": "bottom",
+        "size": 12,
+        "fontWeight": 250
+      },
+      "encoding": {
+        "text": {
+          "type": "nominal",
+          "field": "PresenceWithCount"
+        },
+        "color": {
+          "value": "black"
+        },
+        "theta": {
+          "field": "Number of Days",
+          "type": "quantitative",
+          "stack": "normalize"
+        }
+      }
+    }
+  ]
+}

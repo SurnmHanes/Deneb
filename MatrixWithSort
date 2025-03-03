@@ -1,0 +1,61 @@
+{
+  "height": {"step": 35},
+  "data": {"name": "dataset"},
+  "transform": [
+    {
+      // calculate latest date universally
+      "window": [{"op": "max", "field": "Year", "as": "LastYear"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum['Year'] == datum.LastYear ? datum['Count'] : null",
+      "as": "LatestCount"
+    },
+    {
+      // find the maximum LatestCount for each Name
+      "joinaggregate": [{
+        "op": "max",
+        "field": "LatestCount",
+        "as": "SortValue"
+      }],
+      "groupby": ["Name"]
+    }
+  ],
+  "encoding": {
+    "y": {
+      // y values are sorted by SortValue (latest year's count)
+      "field": "Name",
+      "title": null,
+      "sort": {"field": "SortValue", "order": "descending"},
+      "axis": {"labelFontSize": 13}
+    },
+    "x": {
+      "field": "Year",
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 13
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect"},
+      "encoding": {
+        "color": {
+          "field": "Count",
+          "scale": {"scheme": "lightgreyred"},
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "tooltip": true, "fontSize": 14},
+      "encoding": {
+        "text": {"field": "Count", "type": "quantitative"},
+        "color": {"value": "black"}
+      }
+    }
+  ]
+}

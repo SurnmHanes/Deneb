@@ -62,6 +62,13 @@ Scatter plot showing performance per rep with a dot per month per rep (thereby s
 
 <img width="810" alt="ScatterPlotWithHistory" src="https://github.com/user-attachments/assets/f3358cae-640d-4c69-853e-f74dade72f34" />
 
+## Single Row Table with Transparency
+A single row table with transparent background. This was used on top of another visual to hold the target % for the current period and when selected would activate a drill through button to see target % for all past periods. 
+
+A card did not meet the requirements since the evaluation context could not be gleaned from the card. 
+
+<img width="52" alt="29LdfWT9Ss" src="https://github.com/user-attachments/assets/e4238be0-5f72-4980-b55b-d7a96a67e813" />
+
 ## Slope Graph
 Slope graph showing change between two distinct years for three different countries:
 

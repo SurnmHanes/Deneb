@@ -23,7 +23,7 @@ Dot plot showing market share (MS%) of a product across different geographies ov
 <img width="500" alt="Image" src="https://github.com/user-attachments/assets/95b4c952-07a7-4587-b66a-e1fadb852135">
 
 ## Dumbbell Chart
-Dumbbell chart comparing the activity (calls, appointments etc) that reps have made in regards to Product 1 vs other products
+Dumbbell chart comparing the activity (calls, appointments etc) that reps have made in regards to Product 1 vs other products (all time). 
 
 <img width="731" alt="Image" src="https://github.com/user-attachments/assets/0ade1e3f-a6ca-49f2-9d23-b20fb717e40f">
 

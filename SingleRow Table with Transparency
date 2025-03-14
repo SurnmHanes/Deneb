@@ -1,0 +1,51 @@
+{
+  // single row table with transparency and variable font size (depending on value) 
+  // used as a trigger for drill through
+
+  "data": {"name": "dataset"},
+  "transform": [
+    {
+// if the percentage is greater than 2 i.e. 200% then return ">200%" else return the value (in percentage format)
+      "calculate": "datum['KPI Percentage__highlight'] > 2 ? '>200%' : format( datum['KPI Percentage__highlight'], '.0%')",
+      "as": "display_text"
+    },
+    {
+      "calculate": "length(datum.display_text)",  // Add text length calculation
+      "as": "text_length"
+    }
+  ],
+  "encoding": {
+    "y": {
+      
+      "field": "KPI Percentage__highlight",
+      "title": null,
+      "axis": null
+    }
+  },
+  "config": {
+    "view": {"stroke": "transparent"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect"},
+      "encoding": {"opacity": {"value": 0}}
+    },
+    {
+      "mark": {
+        "type": "text",
+        "tooltip": true,
+        "color": "#FEDE00",
+        "dy": -10,
+        "fontSize": {
+          "expr": 
+// if display_text return value is ">200", then set fontSize to 30 else if return value has 4 characters, set it to 36 otherwise 40
+          "datum.display_text === '>200%' ? 30 : datum.text_length === 4 ? 36 : 40"
+          
+        }
+      },
+      "encoding": {
+        "text": {"field": "display_text", "type": "nominal"}
+      }
+    }
+  ]
+}

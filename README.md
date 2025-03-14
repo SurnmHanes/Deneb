@@ -15,6 +15,8 @@ A unit dial chart showing actual vs target progress against a (user-selectable) 
 ## Donut chart with central total
 Donut chart showing breakdown of a metric across different categories together with the total displayed in the centre.
 
+The native Power BI donut doesn't provide a total and the workarounds such as overlaying a card do not provide a great user experience.
+
 <img width="169" alt="xqzkod9YIR" src="https://github.com/user-attachments/assets/94a83cef-1f1f-4f78-8469-73d8cff05fb7" />
 
 ## Dot Plot Over Time
@@ -38,7 +40,9 @@ Lollipop chart showing country performance (Denmark, Norway & Sweden) between tw
 <img width="148" alt="Image" src="https://github.com/user-attachments/assets/9b1dd4ba-5817-4bdf-834f-42d0b1c1921f">
 
 ## Matrix with Sort
-A responsive matrix visualisation showing counts per year for each person sorted in descending order on the most recent year: 
+A responsive matrix visualisation showing counts per year for each person sorted in descending order on the most recent year. The native Power BI visual does not allow you to sort by any column. 
+
+This Deneb example could easily be adapted to sort on any of the columns or have no sort at all.  
 
 <img width="696" alt="n28kTsT0Qq" src="https://github.com/user-attachments/assets/3c1f9c8c-c0ec-40c0-95c8-f06bc0c3cefc" />
 

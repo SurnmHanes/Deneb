@@ -1,11 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A bar chart ",
+  "information": {
+      "name": "Actual vs Target Combo Chart with Dynamic Axis",
+      "description": "
+      Chart shows Actual (columns) vs Target (dashed line) over a timeframe selected by user (either weekly or monthly). Actuals have conditional formatting and show as red if less than 100% or green if greater than or equal to 100%.
+      ",
+      "author": "Neil Hanes",
+      "uuid": "ca671603-87c6-43aa-aa6f-1462beb0c1ef",
+      "generated": "2025-03-31T09:24:13.089Z"
+    }
   "data": {
     "name": "dataset"
   },
   "transform": [
     {
+      // used to determine y axis height (20% more than highest point on chart whether that's an Actual or Target datapoint) 
       "joinaggregate": [
         {"op": "max", "field": "KPI Actual Value (individual)", "as": "maxA"},
         {"op": "max", "field": "KPI Target Value (individual)", "as": "maxT"}
@@ -13,18 +22,22 @@
     },
     {"calculate": "datum.maxA > datum.maxT ? datum.maxA * 1.2: datum.maxT * 1.2", "as": "max"},
     {
+      // used to format x axis depending on the frequency in the context
       "calculate": " datum['Frequency'] == 'Month' ? timeFormat( datum.MonthCommencing, '%b %Y') : timeFormat( datum.WeekCommencing, '%d %b' )", "as": "SelectedDateFormatted"
     },
     {
+      // used to return the x axis depending on the frequency in the context
       "calculate": "datum['Frequency'] == 'Month' ? datum.MonthCommencing : datum.WeekCommencing", "as": "SelectedDate"  
     },
     {
+      // used on the tooltip to show the correct period
       "calculate": "datum['Frequency'] == 'Month' ? datum.SelectedDateFormatted : 'w/c ' + datum.SelectedDateFormatted", "as": "DynamicDateTitle"
     }
 
 
   ],
   "params": [
+    // this gives us the maximum point on the y axis
     {"name": "maxY", "expr": "data('data_0')[0]['max']"}
   ],
   "layer": [
@@ -36,12 +49,12 @@
       "color": {
         "condition": {
           "test": "datum['KPI Actual Value (individual)'] < datum['KPI Target Value (individual)']",
-          "value": "#981A1F"
+          "value": "#981A1F" // red colour if not hit target for period
       }, 
-      "value": "#104B1C"
+      "value": "#104B1C" // green colour
     },
     "tooltip":
-      [
+      [ // custom tooltip with custom titles for chosen fields
         {
           "field": "SelectedDateFormatted",
           "title": "Period" 
@@ -74,7 +87,7 @@
       "y": {"field": "KPI Target Value (individual)"},
       "color":  {"value": "#fcb714" },
       "tooltip":
-      [
+      [ // custom tooltip on target line
         {
           "field": "DynamicDateTitle",
           "title": "Period" 
@@ -88,6 +101,7 @@
   }
  ],
   "encoding": {
+    // use the SelectedDateFormatted field and sort based on the SelectedDate field (as SelectedDateFormatted is a text field) 
     "x": { 
       "field": "SelectedDateFormatted", 
       "type": "nominal", 
@@ -96,6 +110,7 @@
         "labelAngle": 0
       },
       "scale": {
+        // controls the padding for the bars 
         "paddingOuter": 0.25,
         "paddingInner": 0.2
       }
@@ -104,9 +119,9 @@
     {
       "field": "KPI Actual Value (individual)", "type": "quantitative",
       "scale": 
-      {
+      {  // sets the range of the y axis
         "domain": {"expr": "[0,maxY]" },
-        "nice": true 
+        "nice": true //ends on a nice human readable number
       } 
     }
 

@@ -5,7 +5,7 @@ A repository containing code to create advanced data visualisations using Vega-L
 A number of these data visualisations have then been used in Power BI reports. 
 
 ## Actual vs Target Combo Chart with Dynamic Date Axis
-This was on a drill through page which you navigated to from another where the individual or team d and the frequency for which the KPI was measured had been selected. Some teams / individuals were measured over weeks, some over months. 
+This was on a drill through page which you navigated to from another where the individual or team and the frequency for which the KPI was measured had been selected. Some teams / individuals were measured over weeks, some over months. 
 
 The requirement was that the x axis should change dynamically based on the frequency chosen on the previous page (either showing weeks or months). There was to be nothing except the visual on the drill through page. 
 

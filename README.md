@@ -7,9 +7,9 @@ A number of these data visualisations have then been used in Power BI reports.
 ## Actual vs Target Combo Chart with Dynamic Date Axis
 This was on a drill through page which you navigated to from another where the individual or team and the frequency for which the KPI was measured had been selected. Some teams / individuals were measured over weeks, some over months. 
 
-The requirement was that the x axis should change dynamically based on the frequency chosen on the previous page (either showing weeks or months). There was to be nothing except the visual on the drill through page. 
+The requirement was that the x axis should change dynamically based on the frequency chosen on the previous page (either showing weeks or months). There was to be nothing except the visual on the drill through page.  
 
-This was not possible in native Power BI <em>without a slicer</em> and Fields parameters. 
+This was not possible in native Power BI <em>without a slicer</em> and Fields parameters. The user also wanted the actuals to be colour-coded - green if target met, red otherwise. 
 
 <img width="461" alt="zBWaKam3um" src="https://github.com/user-attachments/assets/0756263c-143f-4a77-8b50-5065d1919824" />
 <img width="453" alt="x9oYw9IcLD" src="https://github.com/user-attachments/assets/2674b490-b3bb-468e-9e25-a5682b5b2cdf" />

@@ -1,8 +1,20 @@
-# Deneb Repository
+# Deneb / Vega-Lite Repository
 
 A repository containing code to create advanced data visualisations using Vega-Lite / Deneb. 
 
 A number of these data visualisations have then been used in Power BI reports. 
+
+## Actual vs Target Combo Chart with Dynamic Date Axis
+This was on a drill through page which you navigated to from another where the individual or team d and the frequency for which the KPI was measured had been selected. Some teams / individuals were measured over weeks, some over months. 
+
+The requirement was that the x axis should change dynamically based on the frequency chosen on the previous page (either showing weeks or months). There was to be nothing except the visual on the drill through page. 
+
+This was not possible in native Power BI <em>without a slicer</em> and Fields parameters. 
+
+<img width="461" alt="zBWaKam3um" src="https://github.com/user-attachments/assets/0756263c-143f-4a77-8b50-5065d1919824" />
+<img width="453" alt="x9oYw9IcLD" src="https://github.com/user-attachments/assets/2674b490-b3bb-468e-9e25-a5682b5b2cdf" />
+
+
 
 ## Column Chart with Supplier Axis
 Column chart with rounded edges showing the number of patients per supplier, split by gender:

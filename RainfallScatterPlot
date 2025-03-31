@@ -1,0 +1,113 @@
+{
+  "data": {"name": "dataset"},
+  "vconcat": [ 
+    {
+      "width": 1000,
+      "height": 300,
+      "mark": {
+        "type": "point",
+        "xOffset": "(random() - 0.5) *50",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Month Name",
+          "type": "ordinal",
+          "axis": {
+            "orient": "top",
+            "labelAngle": 0,
+            "ticks": true,
+            "offset": 10,
+            "labelExpr": "slice(datum.label, 0, 3)",
+            "title": "Sum (mm)",
+            "titleAnchor": "start",
+            "titleColor": "grey",
+            "titlePadding": 15,
+            "domain": true,
+            "domainWidth": 2
+          },
+          "sort": "Month Number"
+        },
+        "y": {
+          "field": "Rainfall",
+          "type": "quantitative",
+          "sort": "descending",
+          "axis": null
+        }
+      }
+    },
+   {
+   "layer": [
+    {
+      "width": 1000,
+      "mark": {
+        "type": "point",
+        "tooltip": true,
+        "color": {
+          "gradient": "radial",
+          "x1": 1,
+          "y1":1,
+          "x2":1,
+          "y2":0,
+          "r1":0,
+          "r2":1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "white"
+            },
+            {
+              "offset": 1,
+              "color": "lightblue"
+            }
+          ]
+         },
+        "yOffset": 30
+        },
+      "encoding": {
+        "x": {
+          "field": "Month Name",
+          "type": "ordinal",
+          "axis": {
+            "orient": "top",
+            "labelAngle": 0,
+            "ticks": true,
+            "offset": 20,
+            "labels": false,
+            "title": "Avg (mm)",
+            "titleAnchor": "start",
+            "titleColor": "grey",
+            "titlePadding": 20,
+            "domain": true,
+            "domainWidth": 2
+          },
+          "sort": "Month Number"
+        },
+        "size": {
+          "aggregate": "mean",
+          "field": "Monthly Precipitation Total (millimetres)",
+          "scale": {"domain": [0, 2.5]}
+        }
+      }
+    },
+    {
+      "width": 1000,
+      "mark": {
+        "type": "text",
+        "tooltip": true,
+        "yOffset": 30
+      },
+      "encoding": {
+        "text": {
+          "field": "Monthly Precipitation Total (millimetres)",
+          "aggregate": "mean",
+          "format": "0.2f"
+        },
+        "x": {
+          "field": "Month Name","sort": "Month Number"}
+        }
+    }
+  ]
+}  
+]
+}

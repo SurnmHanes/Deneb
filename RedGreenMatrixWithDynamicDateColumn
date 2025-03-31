@@ -1,0 +1,60 @@
+{
+  "height": {"step": 50},
+  "data": {"name": "dataset"},
+  "transform": [
+    {
+      "calculate": " datum['Frequency'] == 'Month' ? timeFormat( datum['MonthCommencing'], '%b %Y') : timeFormat( datum['WeekCommencing'], '%d %b' )", "as": "SelectedDateFormatted"
+    },
+    {
+      "calculate": "datum['Frequency'] == 'Month' ? datum['MonthCommencing'] : datum['WeekCommencing']", "as": "SelectedDate"  
+    },
+    {
+      "calculate": "datum['Frequency'] == 'Month' ? datum.SelectedDateFormatted : 'w/c ' + datum.SelectedDateFormatted", "as": "DynamicDateTitle"
+    }
+
+
+  ],
+  "encoding": {
+    "y": {
+      "field": "FullName",
+      "title": null,
+      "axis": {"labelFontSize": 13}
+    },
+    "x": {
+      "field": "SelectedDateFormatted",
+      "sort": { "field": "SelectedDate", "order": "ascending"},
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 13
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": 
+      {
+        "type": "rect",
+        "strokeWidth": 3,
+        "stroke": "#3a3a3a"
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum['KPI Actual vs Target %'] >= 1"
+          , "value": "#104B1C" 
+      },
+      "value": "#981A1F"
+      }
+    }
+    },
+    {
+      "mark": {"type": "text", "tooltip": true, "fontSize": 14},
+      "encoding": {
+        "text": {"field": "KPI Actual vs Target %__formatted"},
+        "color": {"value": "whitesmoke"}
+      }
+    }
+  ]
+}

@@ -53,6 +53,15 @@ A radar chart showing performance across a range of metrics for a given individu
 
 <img width="322" alt="yRLzVdzf9D" src="https://github.com/user-attachments/assets/4e8c8e3e-8e9d-48b4-aef2-531ec22979ff" />
 
+## Rainfall Scatter Plot
+This was a challenge set from the Workout Wednesday website (https://workout-wednesday.com/2023-week-22-power-bi-inverted-jittered-scatter/).
+
+This involves two charts vertically stacked on top of one another. The first represents the sum of rainfall per month as a jitter scatter plot and the second as a bubble chart showing the average rainfall per month.
+
+(The heading was not part of the deneb specification and was done separely using native Power BI) 
+
+<img width="538" alt="Lb1c1gBOhY" src="https://github.com/user-attachments/assets/04b83827-7ec1-4a49-aec5-3a35303b5b6d" />
+
 ## Red / Green Combo Chart with Dynamic Date Axis
 This was on a drill through page which you navigated to from another where the individual or team and the frequency for which the KPI was measured had been selected. Some teams / individuals were measured over weeks, some over months. 
 
